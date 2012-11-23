@@ -56,7 +56,7 @@ module OmniAuth
         # however. It will fail in the extremely rare case of a user who has
         # a Google Account but has never even signed up for Gmail. This has
         # not been seen in the field.
-        @user_hash ||= MultiJson.decode(@access_token.get('https://www.google.com/m8/feeds').body)
+        @user_hash ||= MultiJson.decode(@access_token.get('https://www.google.com/m8/feeds/contacts/default/full?alt=json').body)
       end
 
       # Monkeypatch OmniAuth to pass the scope and authorize_params in the consumer.get_request_token call
